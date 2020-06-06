@@ -1,5 +1,7 @@
 {
     "cmds": {
-        "start": "ls"
+        "ls": "ls",
+        "test": "touch test.txt",
+        "den": "deno run -f --allow-run --allow-read den.ts"
     }
 }
