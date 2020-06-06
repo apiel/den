@@ -56,9 +56,12 @@ if (import.meta.main) {
     start();
 }
 
-function runCmd(cmd: string | string[], args: string[]) {
+async function runCmd(cmd: string | string[], args: string[]) {
     if (Array.isArray(cmd)) {
-        return Promise.all(cmd.map((c) => run([...c.split(' '), ...args])));
+        for(const c of cmd) {
+            await run([...c.split(' '), ...args]);
+        }
+        return;
     }
     return run([...cmd.toString().split(' '), ...args]);
 }
