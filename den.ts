@@ -56,8 +56,11 @@ if (import.meta.main) {
     start();
 }
 
-function runCmd(cmd: string, args: string[]) {
-    return run([...cmd.split(' '), ...args]);
+function runCmd(cmd: string | string[], args: string[]) {
+    if (Array.isArray(cmd)) {
+        return Promise.all(cmd.map((c) => run([...c.split(' '), ...args])));
+    }
+    return run([...cmd.toString().split(' '), ...args]);
 }
 
 function runDeno(args: string[]) {

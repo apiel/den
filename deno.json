@@ -1,5 +1,6 @@
 {
     "cmds": {
+        "multi": ["pwd", "ls"],
         "ls": "ls",
         "test": "touch test.txt",
         "start": "deno run --allow-run --allow-read den.ts"

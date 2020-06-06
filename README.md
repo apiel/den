@@ -8,19 +8,22 @@ den give the possibility to create a `deno.json` file and execute some pre-defin
 ```json
 {
     "cmds": {
+        "multi": ["ls", "pwd"],
         "my-ls": "ls",
         "start": "deno run --allow-read --allow-net your_script.ts"
     }
 }
 ```
 
-You can then run:
+Then run:
 
 -   `den cmd` to get the list of commands
 -   `den cmd my-ls` or `den my-ls` to execute the command
 -   `den cmd my-ls -l` or `den my-ls -l` to execute the command with extra params
 
-You can still run all the commands available in deno, e.g.:
+If the command is an array of command it will run each of them one after the other and add the extra params to each of them, so if you run `den multi --help`, it will execute `ls --help` and `pwd --help`.
+
+All the commands from deno are also available, e.g.:
 
 -   `den run your_script.ts`
 -   `den --help`
