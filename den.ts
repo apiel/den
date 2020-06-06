@@ -37,6 +37,29 @@ async function start() {
         const [cmd, ...args] = Deno.args;
         runCmd(config.cmds[cmd], args);
     } else {
+        if (Deno.args[0] === '--help' || Deno.args[0] === '-h') {
+            console.log(`den
+A wrapper of deno cli to give some extra features.
+
+Execute commands in deno.json
+{
+    "cmds": {
+        "start": "deno run --allow-read --allow-net your_script.ts"
+    }
+}
+
+To execute command:
+    den start
+    den cmd start
+
+To list commands:
+    den cmd
+
+Else run any commands from deno:
+    den [OPTIONS] [SUBCOMMAND]
+
+----------`);
+        }
         runDeno(Deno.args);
     }
 }

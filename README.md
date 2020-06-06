@@ -1,6 +1,7 @@
 # den
 
 A better deno cli :p
+A wrapper of deno cli to give some extra features.
 
 den give the possibility to create a `deno.json` file and execute some pre-defined commands.
 
