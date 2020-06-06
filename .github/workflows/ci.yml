@@ -1,20 +1,26 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - master
-  schedule:
-    - cron: "0 4 * * *"
+    push:
+        branches:
+            - master
+    schedule:
+        - cron: '0 4 * * *'
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: denolib/setup-deno@master
-      - run: deno upgrade
-      - run: deno --version
-      - run: rm -f test.txt
-      - run: deno run -f --allow-run --allow-read den.ts test
-      - run: ls test.txt
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - uses: denolib/setup-deno@master
+            - run: deno upgrade
+            - run: deno --version
+            - run: rm -f test.txt
+            - run: deno run --allow-run --allow-read den.ts test
+            - run: ls test.txt
+            - run: rm -f test.txt
+            - run: deno run --allow-run --allow-read den.ts cmd test
+            - run: ls test.txt
+            - run: deno run --allow-run --allow-read den.ts --help
+            - run: deno run --allow-run --allow-read den.ts cmd
+            - run: deno run --allow-run --allow-read den.ts ls -l
