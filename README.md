@@ -34,3 +34,5 @@ Use deno [installer](https://deno.land/manual/tools/script_installer):
 ```sh
 deno install -f --allow-run --allow-read https://raw.githubusercontent.com/apiel/den/master/den.ts
 ```
+
+To upgrade den run `den den upgrade`.

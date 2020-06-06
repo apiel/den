@@ -21,7 +21,7 @@ async function start() {
         } else {
             const cmds = config.cmds;
             if (Deno.args[1]) {
-                const [,cmd, ...args] = Deno.args;
+                const [, cmd, ...args] = Deno.args;
                 if (cmds[cmd]) {
                     runCmd(cmds[cmd], args);
                 } else {
@@ -32,6 +32,14 @@ async function start() {
                     console.log(`${cmd}: ${cmds[cmd]}`),
                 );
             }
+        }
+    } else if (Deno.args[0] === 'den') {
+        if (Deno.args[1] === 'upgrade') {
+            runDeno(
+                'install -f --allow-run --allow-read https://raw.githubusercontent.com/apiel/den/master/den.ts'.split(
+                    ' ',
+                ),
+            );
         }
     } else if (Deno.args[0] && config.cmds && config.cmds[Deno.args[0]]) {
         const [cmd, ...args] = Deno.args;
