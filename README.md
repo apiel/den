@@ -19,7 +19,9 @@ You can then run:
 -   `denop cmd my-ls` or `denop my-ls` to execute the command
 -   `denop cmd my-ls -l` or `denop my-ls -l` to execute the command with extra params
 
-To install we use deno installer: https://deno.land/manual/tools/script_installer
+## installation
+
+Use deno [installer](https://deno.land/manual/tools/script_installer):
 
 ```sh
 deno install -f --allow-run --allow-read https://raw.githubusercontent.com/apiel/denop/master/denop.ts
