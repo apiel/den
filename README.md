@@ -19,6 +19,13 @@ You can then run:
 -   `den cmd my-ls` or `den my-ls` to execute the command
 -   `den cmd my-ls -l` or `den my-ls -l` to execute the command with extra params
 
+You can as well still run all the command available in deno, e.g.:
+
+-   `den run your_script.ts`
+-   `den --help`
+-   `den eval "console.log(30933 + 404)"`
+-   ...
+
 ## installation
 
 Use deno [installer](https://deno.land/manual/tools/script_installer):
